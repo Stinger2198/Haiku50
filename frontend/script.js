@@ -31,7 +31,6 @@ const state = {
   keywords: "",
   lang: "",
   spice: 0,
-  langOpen: false,
   resultState: "empty",
   errorMsg: "",
   lines: [],
@@ -128,25 +127,18 @@ function renderKeywords() {
 }
 
 function renderLanguage() {
-  els.languageLabel.textContent = state.lang ? labelOf(state.lang) : "Choose language";
-  els.languageButton.classList.toggle("has-value", Boolean(state.lang));
-  els.languageButton.setAttribute("aria-expanded", String(state.langOpen));
-  els.languageMenu.classList.toggle("is-hidden", !state.langOpen);
-  els.languageMenu.innerHTML = "";
+  els.langGrid.innerHTML = "";
   LANGS.forEach((lang) => {
-    const option = document.createElement("button");
-    option.type = "button";
-    option.className = "language-option";
-    option.setAttribute("role", "option");
-    option.setAttribute("aria-selected", String(state.lang === lang.code));
-    option.innerHTML = `<span>${lang.label}</span><span class="language-native">${lang.native}</span>`;
-    option.classList.toggle("is-selected", state.lang === lang.code);
-    option.addEventListener("click", () => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "lang-btn";
+    btn.classList.toggle("is-selected", state.lang === lang.code);
+    btn.innerHTML = `${lang.label} <span class="lang-native">${lang.native}</span>`;
+    btn.addEventListener("click", () => {
       state.lang = lang.code;
-      state.langOpen = false;
       render();
     });
-    els.languageMenu.append(option);
+    els.langGrid.append(btn);
   });
 }
 
@@ -349,10 +341,7 @@ function bindElements() {
   els.keywords = document.getElementById("keywords");
   els.countLabel = document.getElementById("count-label");
   els.clearKeywords = document.getElementById("clear-keywords");
-  els.languageButton = document.getElementById("language-button");
-  els.languageLabel = document.getElementById("language-label");
-  els.languageMenu = document.getElementById("language-menu");
-  els.languageCard = document.getElementById("language-card");
+  els.langGrid = document.getElementById("lang-grid");
   els.wasabiButton = document.getElementById("wasabi-button");
   els.wasabiDots = document.getElementById("wasabi-dots");
   els.spiceLabel = document.getElementById("spice-label");
@@ -374,18 +363,6 @@ function bindEvents() {
     state.keywords = "";
     els.keywords.value = "";
     renderKeywords();
-  });
-
-  els.languageButton.addEventListener("click", () => {
-    state.langOpen = !state.langOpen;
-    renderLanguage();
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!els.languageCard.contains(e.target) && state.langOpen) {
-      state.langOpen = false;
-      renderLanguage();
-    }
   });
 
   els.wasabiButton.addEventListener("click", () => {

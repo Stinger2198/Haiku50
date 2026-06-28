@@ -217,33 +217,47 @@ textarea:focus { border-color: #5c8a4a; background: rgba(255,255,255,0.96); }
 
 .language-card {
   grid-area: lang;
-  position: relative;
   padding: 22px;
 }
 .field-title { display: block; margin-bottom: 12px; }
-.language-button {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  border: 1px solid #e7e3d8; border-radius: 12px; padding: 12px 14px;
-  background: rgba(251,250,246,0.86); color: #b3afa3; cursor: pointer; font-size: 15px;
+
+.lang-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.language-button.has-value { color: #232220; }
-.language-button:hover { border-color: #cfcabc; }
-.chevron { color: #a8a496; font-size: 12px; }
-.language-menu {
-  position: absolute; left: 22px; right: 22px; top: 100%; z-index: 20;
-  max-height: 260px; overflow-y: auto; margin-top: 6px; padding: 6px;
-  background: rgba(255,255,255,0.94); border: 1px solid rgba(231,227,216,0.86);
-  border-radius: 14px; box-shadow: 0 12px 32px rgba(40,38,30,0.12);
-  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e7e3d8;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(251,250,246,0.86);
+  color: #7d7a6f;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.18s ease;
 }
-.language-option {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  border: none; border-radius: 9px; padding: 9px 12px; background: transparent;
-  color: #232220; cursor: pointer; font-size: 14px; text-align: left;
+.lang-btn:hover {
+  border-color: #cfcabc;
+  background: rgba(255,255,255,0.96);
+  color: #232220;
 }
-.language-option:hover { background: #f3f1ea; }
-.language-option.is-selected { background: #eef3e9; }
-.language-native { color: #c7c2b4; font-family: "Noto Serif JP",serif; font-size: 13px; }
+.lang-btn.is-selected {
+  border-color: #5c8a4a;
+  background: #eef3e9;
+  color: #3f6433;
+}
+.lang-btn .lang-native {
+  font-family: "Noto Serif JP",serif;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.lang-btn.is-selected .lang-native {
+  opacity: 1;
+}
 
 /* ===== WASABI ===== */
 .wasabi-card {
