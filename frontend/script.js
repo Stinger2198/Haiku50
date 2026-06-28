@@ -454,7 +454,7 @@ const SPICE = [
 
 const state = {
   keywords: "",
-  lang: "",
+  lang: "uk",
   spice: 0,
   resultState: "empty",
   errorMsg: "",
