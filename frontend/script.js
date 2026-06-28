@@ -1,6 +1,6 @@
 "use strict";
 
-const API_URL = "http://localhost:3001/generate";
+const API_URL = "/generate";
 
 const LANGS = [
   { code: "uk", label: "Ukrainian", native: "Українська" },

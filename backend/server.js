@@ -1,10 +1,17 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 import { OPENAI_API_KEY, PORT, MODEL } from "./config.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Роздаємо статику фронтенду
+app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 // ===== Language map =====
 const LANGUAGES = {
