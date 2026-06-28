@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Haiku 50</title>
+  <title id="page-title">Haiku 50</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
           <h1>Haiku 50</h1>
           <span>俳句</span>
         </div>
-        <p>Enter 3 to 7 words or short phrases — then add some heat with the "50 wasabi" button.</p>
+        <p id="hero-desc">Enter 3 to 7 words or short phrases — then add some heat with the "50 wasabi" button.</p>
       </header>
 
       <main class="grid" id="app-grid">
@@ -35,13 +35,13 @@
         <section class="card result-card">
           <div class="kicker">
             <span class="dot"></span>
-            <span>Haiku</span>
+            <span id="kicker-label">Haiku</span>
           </div>
           <div class="result-stage" id="result-stage" aria-live="polite">
             <div class="empty-state">
               <div class="empty-ring"></div>
-              <div class="empty-title">No haiku yet</div>
-              <div class="empty-copy">Enter words and press "Generate"</div>
+              <div class="empty-title" id="empty-title">No haiku yet</div>
+              <div class="empty-copy" id="empty-copy">Enter words and press "Generate"</div>
             </div>
           </div>
           <div class="done-meta is-hidden" id="done-meta"></div>
@@ -50,7 +50,7 @@
         <!-- KEYWORDS -->
         <section class="card keywords-card">
           <div class="card-head">
-            <span>Keywords</span>
+            <span id="keywords-heading">Keywords</span>
             <button type="button" class="clear-button" id="clear-keywords" disabled>Clear</button>
           </div>
           <textarea id="keywords" rows="3" placeholder="sakura, rain, silence, train, dusk"></textarea>
@@ -59,7 +59,7 @@
 
         <!-- LANGUAGE -->
         <section class="card language-card" id="language-card">
-          <span class="field-title">Language</span>
+          <span class="field-title" id="lang-title">Language</span>
           <div class="lang-grid" id="lang-grid"></div>
         </section>
 
@@ -67,7 +67,7 @@
         <section class="card wasabi-card">
           <button type="button" class="wasabi-button" id="wasabi-button">
             <span class="wasabi-drop" aria-hidden="true"></span>
-            50 wasabi
+            <span id="wasabi-btn-text">50 wasabi</span>
           </button>
           <div class="wasabi-status">
             <div class="wasabi-dots" id="wasabi-dots" aria-hidden="true"></div>
@@ -79,7 +79,7 @@
         <!-- HISTORY -->
         <section class="card history-card">
           <div class="card-head history-head">
-            <span>History</span>
+            <span id="history-heading">History</span>
             <div class="history-toolbar">
               <span id="history-count"></span>
               <button type="button" id="history-clear">Clear</button>
@@ -92,8 +92,8 @@
         <!-- INFO + GENERATE -->
         <section class="info-card">
           <div class="info-panel">
-            <div>5·7·5</div>
-            <p>A haiku — three lines, one breath. Words set the image, wasabi sets the mood.</p>
+            <div id="info-title">5·7·5</div>
+            <p id="info-desc">A haiku — three lines, one breath. Words set the image, wasabi sets the mood.</p>
           </div>
           <button type="button" class="generate-button" id="generate-button">Generate haiku</button>
         </section>
